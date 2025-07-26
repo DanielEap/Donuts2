@@ -326,7 +326,7 @@ export default function Homepage() {
 						</Button>
               <Button
 							component={Link}
-							to="/menu"
+							to="/gallery" // TODO: link to breakfast/lunch section of gallery
 							variant="contained"
 							size="large"
 							sx={{
@@ -343,7 +343,7 @@ export default function Homepage() {
 								},
 							}}
 						>
-							Call to Order
+							Breakfast/Lunch
 						</Button>
             </Stack>
 					</Stack>

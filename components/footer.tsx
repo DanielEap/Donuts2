@@ -1,8 +1,10 @@
-import { Box, Typography } from "@mui/material";
+import App from "@/app/page";
+import { AppBar, Box, Typography } from "@mui/material";
 
 export default function Footer() {
     const date = 'July 2025';
 	return (
+        <AppBar position="static" sx={{ backgroundColor: "#F3F3F3", color: "black", mt: 4 }}>
 		<Box
 			component="footer"
 			sx={{
@@ -19,5 +21,6 @@ export default function Footer() {
                 Last Updated: {date}
             </Typography>
 		</Box>
+    </AppBar>
 	);
 }

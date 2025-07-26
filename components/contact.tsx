@@ -1,6 +1,6 @@
 "use client"
 
-import { Container, Typography, Grid, Card, CardContent, Box, List, ListItem, ListItemText } from "@mui/material"
+import { Container, Typography, Grid, Card, CardContent, Box, List, ListItem, ListItemText,Stack } from "@mui/material"
 import LocationOnIcon from "@mui/icons-material/LocationOn"
 import PhoneIcon from "@mui/icons-material/Phone"
 import EmailIcon from "@mui/icons-material/Email"
@@ -45,129 +45,93 @@ export default function Contact() {
           Contact Us
         </Typography>
         <Typography variant="h6" color="text.secondary">
-          We'd love to hear from you! Visit us or get in touch
+          Please call us or visit us 
         </Typography>
       </Box>
 
-      <Grid container spacing={4}>
-        {/* Contact Information */}
-        <Grid item xs={12} md={6}>
-          <Typography variant="h4" sx={{ mb: 3, fontWeight: "bold" }}>
-            Get In Touch
-          </Typography>
-
-          {contactInfo.map((info, index) => (
-            <Card key={index} sx={{ mb: 2, boxShadow: 2 }}>
-              <CardContent>
-                <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
-                  <Box
-                    sx={{
-                      color: "secondary.main",
-                      mr: 2,
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                  >
-                    {info.icon}
+      <Stack direction={{ xs: "column", md: "row" }} spacing={4} justifyContent="space-between" sx={{ pb: 8}}>
+        <Stack>
+           <Box sx={{ display: "flex", alignItems: "center", mb: 1}}>
+                    <LocationOnIcon sx={{ color: "secondary.main", mr: 2 }} />
+                    <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                      Address
+                    </Typography>
                   </Box>
-                  <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                    {info.title}
+                  <Typography variant="body1" color="text.secondary" sx={{ ml: 4 }}>
+                    123 Sweet Street
                   </Typography>
-                </Box>
-                {info.details.map((detail, detailIndex) => (
-                  <Typography key={detailIndex} variant="body1" color="text.secondary" sx={{ ml: 4 }}>
-                    {detail}
+                  <Typography variant="body1" color="text.secondary" sx={{ ml: 4 }}>
+                    Donut City, DC 12345
                   </Typography>
-                ))}
-              </CardContent>
-            </Card>
-          ))}
-        </Grid>
-
-        {/* Hours and Map */}
-        <Grid item xs={12} md={6}>
-          <Typography variant="h4" sx={{ mb: 3, fontWeight: "bold" }}>
-            Store Hours
+        </Stack>
+        <Stack>
+          <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
+            <PhoneIcon sx={{ color: "secondary.main", mr: 2 }} />
+            <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+              Phone
+            </Typography>
+          </Box>
+          <Typography variant="body1" color="text.secondary" sx={{ ml: 4 }}>
+            (555) 123-DONUT
           </Typography>
+          <Typography variant="body1" color="text.secondary" sx={{ ml: 4 }}>
+            (555) 123-3668
+          </Typography>
+        </Stack>
+        <Stack>
+          <Box sx={{ display: "flex", alignItems: "center", mb: 1  }}>
+                    <AccessTimeIcon sx={{ color: "secondary.main", mr: 2 }} />
+                    <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                      Operating Hours
+                    </Typography>
+                  </Box>
+                  <Typography variant="body1" sx={{ ml: 4, fontWeight: "bold" }}>
+                    Monday - Friday: <span style={{ color: "#388e3c" }}>6:00 AM - 8:00 PM</span>
+                  </Typography>
+                  <Typography variant="body1" sx={{ ml: 4, fontWeight: "bold" }}>
+                    Saturday: <span style={{ color: "#388e3c" }}>7:00 AM - 9:00 PM</span>
+                  </Typography>
+                  <Typography variant="body1" sx={{ ml: 4, fontWeight: "bold" }}>
+                    Sunday: <span style={{ color: "#388e3c" }}>7:00 AM - 7:00 PM</span>
+                  </Typography>
+          </Stack>
+    
 
-          <Card sx={{ mb: 4, boxShadow: 2 }}>
-            <CardContent>
-              <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-                <AccessTimeIcon sx={{ color: "secondary.main", mr: 2 }} />
-                <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                  Operating Hours
-                </Typography>
-              </Box>
-              <List>
-                {hours.map((schedule, index) => (
-                  <ListItem key={index} sx={{ py: 0.5 }}>
-                    <ListItemText
-                      primary={
-                        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-                            {schedule.day}
-                          </Typography>
-                          <Typography variant="body1" color="success.main">
-                            {schedule.time}
-                          </Typography>
-                        </Box>
-                      }
-                    />
-                  </ListItem>
-                ))}
-              </List>
-            </CardContent>
-          </Card>
-
-          {/* Map Placeholder */}
+       
+      </Stack>
+ {/* Map */}
+        
           <Card sx={{ boxShadow: 2 }}>
             <CardContent>
-              <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
+              <Typography variant="h6" sx={{  fontWeight: "bold" }}>
                 Find Us
               </Typography>
               <Box
                 sx={{
-                  height: 250,
-                  backgroundColor: "#f5f5f5",
+                  height: 500,
                   borderRadius: 1,
+                  overflow: "hidden",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  backgroundImage: "url(/placeholder.svg?height=250&width=400&query=map location of donut shop)",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
                 }}
               >
-                <Typography variant="body2" color="text.secondary">
-                  Interactive Map Coming Soon
-                </Typography>
+                <iframe
+                  title="Google Map"
+                  width="100%"
+                  height="500"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d97842.45327728566!2d-75.26083164182307!3d39.97321662834567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c65564960bf3%3A0x7b5d4c0845c5248f!2sFresh%20Donuts!5e0!3m2!1sen!2sus!4v1753491726570!5m2!1sen!2sus"
+                ></iframe>
               </Box>
             </CardContent>
           </Card>
-        </Grid>
-      </Grid>
 
       {/* Additional Info */}
-      <Box
-        sx={{
-          mt: 6,
-          p: 4,
-          backgroundColor: "success.main",
-          borderRadius: 2,
-          textAlign: "center",
-        }}
-      >
-        <Typography variant="h5" sx={{ mb: 2, fontWeight: "bold", color: "white" }}>
-          Special Orders & Catering
-        </Typography>
-        <Typography variant="body1" sx={{ color: "white", mb: 2 }}>
-          Planning a special event? We offer custom donut arrangements, corporate catering, and bulk orders with advance
-          notice.
-        </Typography>
-        <Typography variant="body2" sx={{ color: "white" }}>
-          Call us at least 24 hours in advance for special orders
-        </Typography>
-      </Box>
+      
     </Container>
-  )
+  );
 }
